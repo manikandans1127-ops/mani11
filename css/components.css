@@ -2575,10 +2575,20 @@
 .lightbox-content {
   position: relative;
   max-width: 90vw;
-  max-height: 85vh;
+  max-height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.lightbox-img-wrapper {
+  max-width: 90vw;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 .lightbox-img {
@@ -2588,13 +2598,31 @@
   border-radius: 12px;
   border: 2px solid rgba(253, 164, 175, 0.4);
   box-shadow: 0 0 50px rgba(244, 63, 94, 0.5);
+  cursor: zoom-in;
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox-img.is-zoomed {
+  transform: scale(1.65);
+  cursor: zoom-out;
 }
 
 .lightbox-caption {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--pink-100);
+  text-align: center;
+  max-width: 80vw;
+}
+
+.lightbox-zoom-hint {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: rgba(253, 164, 175, 0.7);
+  letter-spacing: 0.4px;
   text-align: center;
 }
 
@@ -2975,37 +3003,307 @@
 }
 
 /* ==========================================================================
-   ✨ WHAT IF...? INTERACTIVE AVATAR SCENE
+   ✨ WHAT IF...? FOCUSED STORYTELLING EXPERIENCE (CENTERED AVATAR)
    ========================================================================== */
 .what-if-stage-container {
-  max-width: 650px;
+  max-width: 680px;
   margin: 0 auto;
   width: 100%;
-}
-
-.what-if-avatar-frame {
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: inline-block;
-}
-
-.what-if-avatar-frame:hover {
-  transform: scale(1.08);
-}
-
-.what-if-speech-bubble {
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.what-if-photo-frame {
+  padding: 1.2rem 1rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 16px;
+}
+
+.what-if-progress-header {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+
+.what-if-badge {
+  display: inline-block;
+  font-size: 0.95rem;
+  color: var(--pink-200);
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(253, 164, 175, 0.3);
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.4px;
+}
+
+.what-if-badge strong {
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.what-if-progress-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
   overflow: hidden;
 }
 
-.what-if-photo-frame:hover {
+.what-if-progress-fill {
+  width: 6.6%;
+  height: 100%;
+  background: linear-gradient(90deg, #f43f5e, #ec4899, #fda4af);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.8);
+}
+
+.what-if-stage-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: whatIfFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes whatIfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Large Centered Hero Avatar */
+.what-if-avatar-hero {
+  position: relative;
+  width: 155px;
+  height: 155px;
+  margin: 0.6rem auto 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: heroAvatarFloat 3.8s ease-in-out infinite;
+}
+
+.what-if-avatar-hero.reaction-avatar {
+  width: 130px;
+  height: 130px;
+  margin: 1.2rem auto 1.1rem;
+}
+
+@keyframes heroAvatarFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.what-if-aura-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.45) 0%, rgba(236, 72, 153, 0.15) 55%, transparent 72%);
+  animation: auraPulse 2.4s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes auraPulse {
+  0% { transform: scale(0.92); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 25px rgba(244, 63, 94, 0.85)); }
+}
+
+.what-if-avatar-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--pink-400);
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.6), 0 10px 30px rgba(0, 0, 0, 0.6);
+  background: #150614;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.what-if-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.what-if-hero-mood {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.45), 0 0 16px rgba(244, 63, 94, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  z-index: 3;
+  animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Centered Speech Bubble Directly Below Avatar */
+.what-if-speech-container {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto 1.6rem;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.what-if-bubble-pointer-up {
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 14px solid rgba(253, 164, 175, 0.45);
+  margin: 0 auto;
+  position: relative;
+  top: 1px;
+}
+
+.what-if-speech-bubble {
+  background: rgba(22, 9, 28, 0.88);
+  border: 1.5px solid rgba(253, 164, 175, 0.4);
+  border-radius: 20px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(244, 63, 94, 0.22);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+}
+
+.what-if-speech-bubble.reaction-bubble {
+  background: rgba(26, 10, 32, 0.92);
+  border-color: rgba(244, 63, 94, 0.5);
+}
+
+.what-if-question-content {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 54px;
+  text-align: center;
+}
+
+.what-if-reaction-content {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #fff;
+  line-height: 1.6;
+  margin: 0;
+  text-align: center;
+}
+
+/* Reveal Mode Answer Frame */
+.what-if-answer-frame {
+  max-width: 440px;
+  width: 100%;
+  margin: 0 auto 0.4rem;
+  text-align: center;
+}
+
+.what-if-photo-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid rgba(253, 164, 175, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 35px rgba(244, 63, 94, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.what-if-photo-wrapper:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 35px rgba(244, 63, 94, 0.6) !important;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.8), 0 0 45px rgba(244, 63, 94, 0.7);
+}
+
+.what-if-revealed-photo {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.what-if-revealed-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0.8rem 0 0;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 15px rgba(244, 63, 94, 0.5);
+}
+
+/* Action Rows & Buttons */
+.what-if-action-row {
+  margin-top: 0.6rem;
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.what-if-btn-lg {
+  font-size: 1.15rem !important;
+  padding: 0.95rem 2.8rem !important;
+  letter-spacing: 0.8px;
+  border-radius: 35px !important;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.65) !important;
+  transition: all 0.25s ease !important;
+}
+
+.what-if-btn-lg:hover {
+  transform: scale(1.05) !important;
+  box-shadow: 0 0 35px rgba(244, 63, 94, 0.95) !important;
+}
+
+/* Completion Banner for Question 15 */
+.what-if-completion-banner {
+  background: rgba(26, 12, 34, 0.92);
+  border: 1.5px solid rgba(253, 164, 175, 0.55);
+  border-radius: 22px;
+  padding: 2rem 2.2rem;
+  text-align: center;
+  max-width: 520px;
+  margin: 1.2rem auto 0;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.75), 0 0 35px rgba(244, 63, 94, 0.45);
+  animation: whatIfFadeIn 0.5s ease forwards;
+}
+
+.completion-stars {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(244, 63, 94, 0.8));
+}
+
+.completion-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.8px;
+}
+
+.completion-subtitle {
+  font-size: 1rem;
+  color: var(--pink-200);
+  margin: 0 0 1.5rem;
+  line-height: 1.5;
 }
 
 @keyframes pulseGlow {

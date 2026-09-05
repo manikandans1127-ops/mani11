@@ -524,7 +524,7 @@ class SoundtrackRevealEngine {
 }
 
 /* ==========================================================================
-   5. WHAT IF...? INTERACTIVE ENGINE
+   5. WHAT IF...? INTERACTIVE ENGINE (FOCUSED AVATAR STORYTELLING)
    ========================================================================== */
 class WhatIfEngine {
   constructor() {
@@ -532,20 +532,34 @@ class WhatIfEngine {
     this.currentIndex = 0;
     this.isTyping = false;
     this.typewriterTimer = null;
+    this.currentTypingFullText = '';
 
     // DOM Elements
     this.numEl = document.getElementById('what-if-num');
     this.barEl = document.getElementById('what-if-progress-bar');
+
+    // Stages
+    this.questionStage = document.getElementById('what-if-question-stage');
+    this.revealStage = document.getElementById('what-if-reveal-stage');
+
+    // Question Stage
     this.avatarImg = document.getElementById('what-if-avatar-img');
     this.moodBadge = document.getElementById('what-if-mood-badge');
+    this.speechContainer = document.getElementById('what-if-speech-container');
     this.questionText = document.getElementById('what-if-question-text');
     this.revealContainer = document.getElementById('what-if-reveal-container');
     this.revealBtn = document.getElementById('what-if-reveal-btn');
-    this.answerBox = document.getElementById('what-if-answer-box');
+
+    // Reveal Stage
     this.photoImg = document.getElementById('what-if-img');
     this.titleEl = document.getElementById('what-if-title');
+    this.reactionAvatarImg = document.getElementById('what-if-reaction-avatar-img');
+    this.reactionMoodBadge = document.getElementById('what-if-reaction-mood-badge');
     this.reactionText = document.getElementById('what-if-reaction-text');
+    this.nextContainer = document.getElementById('what-if-next-container');
     this.nextBtn = document.getElementById('what-if-next-step-btn');
+    this.completionBox = document.getElementById('what-if-completion-box');
+    this.finishBtn = document.getElementById('what-if-finish-btn');
 
     this.init();
   }
@@ -559,6 +573,19 @@ class WhatIfEngine {
 
     if (this.nextBtn) {
       this.nextBtn.addEventListener('click', () => this.nextQuestion());
+    }
+
+    if (this.finishBtn) {
+      this.finishBtn.addEventListener('click', () => this.finishWhatIf());
+    }
+
+    // Tap speech bubble to complete typing instantly
+    if (this.speechContainer) {
+      this.speechContainer.addEventListener('click', () => {
+        if (this.isTyping) {
+          this.skipTyping();
+        }
+      });
     }
 
     this.loadQuestion(0);
@@ -576,14 +603,14 @@ class WhatIfEngine {
       this.barEl.style.width = `${pct}%`;
     }
 
-    // Reset view states
-    if (this.answerBox) {
-      this.answerBox.classList.add('hidden');
-      this.answerBox.style.display = 'none';
-    }
+    // Switch to Question Stage view
+    if (this.questionStage) this.questionStage.style.display = 'flex';
+    if (this.revealStage) this.revealStage.style.display = 'none';
+
     if (this.revealContainer) {
       this.revealContainer.style.display = 'none';
     }
+
     if (this.avatarImg) {
       this.avatarImg.src = 'assets/avatar.png';
     }
@@ -597,11 +624,12 @@ class WhatIfEngine {
 
   typeQuestion(text) {
     if (!this.questionText) return;
+    this.currentTypingFullText = text;
     this.questionText.innerText = '';
     this.isTyping = true;
 
     let i = 0;
-    const speed = 22;
+    const speed = 24;
 
     this.typewriterTimer = setInterval(() => {
       if (i < text.length) {
@@ -612,18 +640,36 @@ class WhatIfEngine {
         this.isTyping = false;
         // Show Reveal button after typing completes
         if (this.revealContainer) {
-          this.revealContainer.style.display = 'block';
+          this.revealContainer.style.display = 'flex';
         }
       }
     }, speed);
+  }
+
+  skipTyping() {
+    if (!this.isTyping) return;
+    clearInterval(this.typewriterTimer);
+    this.isTyping = false;
+    if (this.questionText && this.currentTypingFullText) {
+      this.questionText.innerText = this.currentTypingFullText;
+    }
+    if (this.revealContainer) {
+      this.revealContainer.style.display = 'flex';
+    }
   }
 
   revealAnswer() {
     const q = this.questions[this.currentIndex];
     if (!q) return;
 
-    if (this.revealContainer) {
-      this.revealContainer.style.display = 'none';
+    if (window.CosmicAudio && window.CosmicAudio.playKeypadClick) {
+      window.CosmicAudio.playKeypadClick();
+    }
+
+    // Switch to Reveal Stage view
+    if (this.questionStage) this.questionStage.style.display = 'none';
+    if (this.revealStage) {
+      this.revealStage.style.display = 'flex';
     }
 
     const moodEmojis = {
@@ -641,8 +687,8 @@ class WhatIfEngine {
       curious: '👀'
     };
 
-    if (this.moodBadge) {
-      this.moodBadge.innerText = moodEmojis[q.emotion] || '✨';
+    if (this.reactionMoodBadge) {
+      this.reactionMoodBadge.innerText = moodEmojis[q.emotion] || '🤍';
     }
 
     if (this.photoImg) {
@@ -658,30 +704,32 @@ class WhatIfEngine {
       this.reactionText.innerText = q.message || q.answer;
     }
 
-    if (this.answerBox) {
-      this.answerBox.classList.remove('hidden');
-      this.answerBox.style.display = 'flex';
-    }
-
-    if (window.CosmicAudio && window.CosmicAudio.playKeypadClick) {
-      window.CosmicAudio.playKeypadClick();
-    }
-
     const isLast = this.currentIndex === this.questions.length - 1;
-    if (this.nextBtn) {
-      this.nextBtn.innerHTML = isLast
-        ? `<span>Finish What If → Special Places ✦</span>`
-        : `<span>Next What If →</span>`;
+    if (isLast) {
+      // Question 15: show completion banner with CONTINUE →
+      if (this.nextContainer) this.nextContainer.style.display = 'none';
+      if (this.completionBox) this.completionBox.style.display = 'block';
+    } else {
+      // Questions 1 - 14: show ONLY ONE Next button: NEXT WHAT IF →
+      if (this.nextContainer) this.nextContainer.style.display = 'flex';
+      if (this.completionBox) this.completionBox.style.display = 'none';
     }
   }
 
   nextQuestion() {
     if (this.currentIndex < this.questions.length - 1) {
       this.loadQuestion(this.currentIndex + 1);
-    } else {
-      if (window.SceneEngine) {
-        window.SceneEngine.nextScene();
-      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  finishWhatIf() {
+    if (window.CosmicAudio && window.CosmicAudio.playUnlockBlast) {
+      window.CosmicAudio.playUnlockBlast();
+    }
+    if (window.SceneEngine) {
+      window.SceneEngine.setValidatorState('what-if-completed', true);
+      window.SceneEngine.nextScene();
     }
   }
 }

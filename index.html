@@ -640,62 +640,93 @@
     </div>
 
     <!-- ==================== CHAPTER 10: WHAT IF...? ==================== -->
-    <div class="story-scene" id="scene-what-if" data-chapter="Chapter 10: What If...?" data-chapter-num="10" data-scene-id="scene-what-if" data-on-enter="what-if-start">
-      <div class="glass-panel text-center what-if-stage-container" style="padding:2.2rem 1.5rem;">
-        <div class="section-badge">✨ What If...?</div>
-        <h2 class="section-title">In Another Multiverse</h2>
+    <div class="story-scene" id="scene-what-if" data-chapter="Chapter 10: What If...?" data-chapter-num="10" data-scene-id="scene-what-if" data-on-enter="what-if-start" data-validator="what-if-completed">
+      <div class="what-if-stage-container">
         
-        <!-- Progress Bar & Question Counter -->
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; font-size:0.9rem; color:var(--pink-200);">
-          <span>Multiverse Timeline</span>
-          <span>Question <strong id="what-if-num" style="color:#fff;">1</strong> of 15</span>
-        </div>
-        <div style="width:100%; height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; margin-bottom:1.8rem;">
-          <div id="what-if-progress-bar" style="width:6.6%; height:100%; background:linear-gradient(90deg, #f43f5e, #fda4af); transition:width 0.4s ease;"></div>
+        <!-- Multiverse Minimal Progress Header -->
+        <div class="what-if-progress-header">
+          <span class="what-if-badge">✨ What If...? · Multiverse <strong id="what-if-num">1</strong> of 15</span>
+          <div class="what-if-progress-track">
+            <div id="what-if-progress-bar" class="what-if-progress-fill"></div>
+          </div>
         </div>
 
-        <!-- Storyteller Avatar & Speech Bubble -->
-        <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:1.5rem;">
-          <div class="what-if-avatar-frame" style="position:relative; width:110px; height:110px; margin-bottom:1rem;">
-            <img id="what-if-avatar-img" src="assets/avatar.png" alt="Storyteller Avatar" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid var(--pink-400); box-shadow:0 0 25px rgba(244,63,94,0.5);">
-            <div id="what-if-mood-badge" style="position:absolute; bottom:0; right:0; width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg, #f43f5e, #ec4899); border:2px solid #fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem;">
-              ✨
+        <!-- ================= 1. QUESTION MODE STAGE ================= -->
+        <div id="what-if-question-stage" class="what-if-stage-card">
+          <!-- Large Centered Hero Avatar -->
+          <div class="what-if-avatar-hero">
+            <div class="what-if-aura-ring"></div>
+            <div class="what-if-avatar-circle">
+              <img id="what-if-avatar-img" src="assets/avatar.png" alt="Storyteller Avatar" class="what-if-hero-img">
+            </div>
+            <div id="what-if-mood-badge" class="what-if-hero-mood">✨</div>
+          </div>
+
+          <!-- Centered Speech Bubble Directly Under Avatar -->
+          <div class="what-if-speech-container" id="what-if-speech-container" title="Tap to finish typing immediately">
+            <div class="what-if-bubble-pointer-up"></div>
+            <div class="what-if-speech-bubble">
+              <p id="what-if-question-text" class="what-if-question-content">What if...?</p>
             </div>
           </div>
 
-          <!-- Typewriter Question Bubble -->
-          <div class="what-if-speech-bubble glass-panel" style="width:100%; max-width:540px; padding:1.2rem 1.4rem; border-radius:16px; border:1px solid rgba(253,164,175,0.4); background:rgba(20,5,15,0.65); min-height:80px; display:flex; align-items:center; justify-content:center;">
-            <p id="what-if-question-text" style="font-family:var(--font-display); font-size:1.3rem; font-style:italic; color:#fff; line-height:1.5; margin:0;">
-              What if...?
-            </p>
+          <!-- ONLY ONE Action: Prominent Reveal Button (shown only when typing finishes) -->
+          <div id="what-if-reveal-container" class="what-if-action-row" style="display: none;">
+            <button id="what-if-reveal-btn" class="cosmic-btn primary-btn glow-pulse-btn what-if-btn-lg">
+              <span>✨ REVEAL ✨</span>
+            </button>
           </div>
         </div>
 
-        <!-- Reveal Button Container (displayed when typing completes) -->
-        <div id="what-if-reveal-container" style="margin-bottom:1.5rem; display:none;">
-          <button id="what-if-reveal-btn" class="cosmic-btn primary-btn" style="font-size:1rem; padding:0.8rem 2rem;">
-            <span>✨ Tap To Reveal Answer ✦</span>
-          </button>
+        <!-- ================= 2. REVEAL MODE STAGE ================= -->
+        <div id="what-if-reveal-stage" class="what-if-stage-card" style="display: none;">
+          <!-- Actual Answer Image (Tap to Zoom) -->
+          <div class="what-if-answer-frame">
+            <div class="what-if-photo-wrapper" id="what-if-photo-wrapper" role="button" tabindex="0" title="Tap to zoom and see the whole photo" onclick="if(window.WhatIf) window.WhatIf.zoomCurrentPhoto()">
+              <img id="what-if-img" src="" alt="What If Alternate Universe" class="what-if-revealed-photo">
+              <div class="what-if-photo-zoom-badge">
+                <span class="zoom-badge-icon">🔍</span>
+                <span>Tap to zoom</span>
+              </div>
+            </div>
+            <h3 id="what-if-title" class="what-if-revealed-title"></h3>
+          </div>
+
+          <!-- Large Centered Avatar for Reaction -->
+          <div class="what-if-avatar-hero reaction-avatar">
+            <div class="what-if-aura-ring"></div>
+            <div class="what-if-avatar-circle">
+              <img id="what-if-reaction-avatar-img" src="assets/avatar.png" alt="Storyteller Avatar" class="what-if-hero-img">
+            </div>
+            <div id="what-if-reaction-mood-badge" class="what-if-hero-mood">🤍</div>
+          </div>
+
+          <!-- Reaction Speech Bubble Directly Below Avatar -->
+          <div class="what-if-speech-container">
+            <div class="what-if-bubble-pointer-up"></div>
+            <div class="what-if-speech-bubble reaction-bubble">
+              <p id="what-if-reaction-text" class="what-if-reaction-content"></p>
+            </div>
+          </div>
+
+          <!-- For Q1 - Q14: ONLY ONE Action Button (NEXT WHAT IF →) -->
+          <div id="what-if-next-container" class="what-if-action-row">
+            <button id="what-if-next-step-btn" class="cosmic-btn primary-btn what-if-btn-lg">
+              <span>NEXT WHAT IF →</span>
+            </button>
+          </div>
+
+          <!-- For Q15 Completion: Journey Complete Banner & Continue Button -->
+          <div id="what-if-completion-box" class="what-if-completion-banner" style="display: none;">
+            <div class="completion-stars">✨ 🤍 🌌</div>
+            <h3 class="completion-title">✨ WHAT IF JOURNEY COMPLETE ✨</h3>
+            <p class="completion-subtitle">You've explored all 15 alternate multiverses with me...</p>
+            <button id="what-if-finish-btn" class="cosmic-btn primary-btn glow-pulse-btn what-if-btn-lg">
+              <span>CONTINUE →</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Answer Card Box (hidden initially, revealed on click) -->
-        <div id="what-if-answer-box" class="glass-panel hidden" style="padding:1.4rem; border-radius:18px; margin-bottom:1.5rem; display:none; flex-direction:column; align-items:center; gap:1rem; animation:fadeInUp 0.4s ease;">
-          <div class="what-if-photo-frame" style="width:100%; max-width:420px; max-height:280px; border:2px solid rgba(253,164,175,0.4); box-shadow:0 0 25px rgba(244,63,94,0.4); border-radius:16px; overflow:hidden;">
-            <img id="what-if-img" src="" alt="What If Moment" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">
-          </div>
-          <h3 id="what-if-title" style="font-family:var(--font-display); font-size:1.45rem; color:#fff; margin:0;"></h3>
-          <div style="background:rgba(244,63,94,0.12); border-left:3px solid var(--pink-400); padding:0.9rem 1.2rem; border-radius:12px; width:100%; max-width:500px; text-align:left;">
-            <p id="what-if-reaction-text" style="margin:0; font-size:1rem; color:#fff; line-height:1.5;"></p>
-          </div>
-          <button id="what-if-next-step-btn" class="cosmic-btn primary-btn" style="margin-top:0.5rem;">
-            <span>Next What If →</span>
-          </button>
-        </div>
-
-        <div class="scene-nav-actions">
-          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
-          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Special Places</span></button>
-        </div>
       </div>
     </div>
 

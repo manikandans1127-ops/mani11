@@ -177,6 +177,30 @@ class StorySceneEngine {
   }
 
   /**
+   * Directly navigate to a scene by sceneId
+   * @param {string} sceneId
+   * @param {boolean} [animate=false]
+   */
+  goToSceneId(sceneId, animate = false) {
+    this.refreshScenes();
+    const idx = this.scenes.findIndex(s => s.sceneId === sceneId);
+    if (idx === -1) return;
+
+    this.maxUnlockedIndex = Math.max(this.maxUnlockedIndex, idx);
+    if (animate) {
+      this.transitionToScene(idx, idx > this.currentSceneIndex ? 'forward' : 'backward');
+    } else {
+      this.scenes.forEach(s => {
+        s.element.classList.remove('active-scene', 'scene-entering-right', 'scene-entering-left', 'scene-exiting-left', 'scene-exiting-right');
+        s.element.style.display = 'none';
+      });
+      this.currentSceneIndex = idx;
+      this.renderScene(idx, 'initial');
+      this.saveProgress();
+    }
+  }
+
+  /**
    * Transition between scenes with elegant visual novel slide/fade
    */
   transitionToScene(targetIndex, direction = 'forward') {
@@ -238,6 +262,14 @@ class StorySceneEngine {
   updateHUD() {
     const scene = this.scenes[this.currentSceneIndex];
     if (!scene) return;
+
+    // Completely hide HUD in What If section to keep it self-contained
+    if (scene.sceneId === 'scene-what-if') {
+      if (this.hud) this.hud.classList.add('hidden');
+      return;
+    } else {
+      if (this.hud) this.hud.classList.remove('hidden');
+    }
 
     // Filter scenes in current chapter for relative count
     const chapterScenes = this.scenes.filter(s => s.chapterNum === scene.chapterNum);
@@ -302,6 +334,13 @@ class StorySceneEngine {
       return true;
     }
 
+    if (scene.validator === 'what-if-completed') {
+      if (this.validatorStates && this.validatorStates['what-if-completed']) {
+        return true;
+      }
+      return false;
+    }
+
     if (scene.validator === 'letter-unsealed') {
       const parchment = document.getElementById('parchment-body-container');
       const isUnrolled = parchment && parchment.classList.contains('parchment-unrolled');
@@ -350,17 +389,6 @@ class StorySceneEngine {
         }, 400);
       }
     }
-  }
-
-  /**
-   * Jump directly to a specific scene by Scene ID or index (if unlocked)
-   */
-  goToSceneId(sceneId) {
-    const targetIdx = this.scenes.findIndex(s => s.sceneId === sceneId);
-    if (targetIdx === -1) return;
-
-    this.maxUnlockedIndex = Math.max(this.maxUnlockedIndex, targetIdx);
-    this.transitionToScene(targetIdx, targetIdx > this.currentSceneIndex ? 'forward' : 'backward');
   }
 }
 
