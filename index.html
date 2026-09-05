@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bavya Sri's Cosmic Universe ✨</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/main.css?v=5.0">
+  <link rel="stylesheet" href="css/cosmic.css?v=5.0">
+  <link rel="stylesheet" href="css/components.css?v=5.0">
+  <link rel="stylesheet" href="css/responsive.css?v=5.0">
+</head>
+<body class="locked">
+  <!-- Canvas Starfield Layer -->
+  <canvas id="cosmic-canvas"></canvas>
+  <div class="nebula-glow nebula-pink"></div>
+  <div class="nebula-glow nebula-purple"></div>
+  <div class="nebula-glow nebula-blue"></div>
+
+  <!-- Cosmic Audio Controller Widget -->
+  <div id="audio-hud" class="audio-hud">
+    <button id="ambient-audio-btn" class="hud-btn" aria-label="Toggle Celestial Ambient Sound" title="Toggle Cosmic Ambience">
+      <span class="audio-icon sound-wave">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+      </span>
+      <span class="hud-label">Cosmic Ambience</span>
+    </button>
+  </div>
+
+  <!-- ==========================================================================
+       MAIN SCENE-BASED VISUAL NOVEL JOURNEY CONTAINER
+       ========================================================================== -->
+  <main id="main-journey" class="journey-content">
+
+    <!-- ==================== CHAPTER 1: SECRET ENTRANCE ==================== -->
+    <div class="story-scene active-scene" id="scene-entrance" data-chapter="Chapter 1: Secret Entrance" data-chapter-num="1" data-scene-id="scene-entrance" data-validator="secret-entrance">
+      <div class="cosmic-card entrance-box glass-panel text-center">
+        <div class="cosmic-badge">
+          <span class="star-icon">✧</span> Restricted Cosmic Portal <span class="star-icon">✧</span>
+        </div>
+        <h1 class="entrance-title">A Private Universe</h1>
+        <p class="entrance-subtitle">Created exclusively for you, Bavya.<br>Enter our celestial key to unlock.</p>
+        
+        <div class="passcode-display">
+          <div class="passcode-slot" id="slot-0"></div>
+          <div class="passcode-slot" id="slot-1"></div>
+        </div>
+        
+        <div id="keypad-feedback" class="keypad-hint">Touch the starry digits below</div>
+        
+        <div class="keypad-grid">
+          <button class="key-btn" data-key="1">1</button>
+          <button class="key-btn" data-key="2">2</button>
+          <button class="key-btn" data-key="3">3</button>
+          <button class="key-btn" data-key="4">4</button>
+          <button class="key-btn" data-key="5">5</button>
+          <button class="key-btn" data-key="6">6</button>
+          <button class="key-btn" data-key="7">7</button>
+          <button class="key-btn" data-key="8">8</button>
+          <button class="key-btn" data-key="9">9</button>
+          <button class="key-btn key-action" data-key="clear">Clear</button>
+          <button class="key-btn" data-key="0">0</button>
+          <button class="key-btn key-action" data-key="hint">Hint ✦</button>
+        </div>
+
+        <div class="entrance-footer">
+          <span class="sparkle-text">Theme: White & Pink Cosmic Night</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 2: WELCOME ==================== -->
+    <div class="story-scene" id="scene-welcome" data-chapter="Chapter 2: Welcome" data-chapter-num="2" data-scene-id="scene-welcome" data-on-enter="welcome-storyteller">
+      <div class="hero-card glass-panel text-center">
+        <div class="hero-avatar-badge" id="hero-storyteller-trigger" title="Tap to talk with the storyteller" style="width: 105px; height: 105px; margin: 0 auto 1.2rem; position: relative; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #f43f5e, #ec4899, #fda4af); box-shadow: 0 0 25px rgba(244, 63, 94, 0.45); cursor: pointer;">
+          <img src="assets/avatar.png" alt="Bavya Sri Avatar" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #201127;">
+        </div>
+        <div class="celestial-tag">Happy Birthday</div>
+        <h1 class="hero-title glow-text">Bavya Sri</h1>
+        <p class="hero-quote">“A little digital universe made just for you, my favorite person.”</p>
+        
+        <div class="hero-stars-divider">
+          <span>✧</span><span>✦</span><span>★</span><span>✦</span><span>✧</span>
+        </div>
+
+        <p class="hero-description">
+          Welcome to a private space curated with our real moments, memories, inside jokes, songs, and hidden secrets. Take your time, turn every page, and let's walk through our story together.
+        </p>
+
+        <div class="scene-nav-actions">
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()">
+            <span>Begin Chapter 3: Our Story</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 3: OUR STORY ==================== -->
+    <!-- Scene 3.1: Story Prelude -->
+    <div class="story-scene" id="scene-story-intro" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-intro">
+      <div class="glass-panel text-center" style="padding:2.5rem 2rem;">
+        <div class="section-badge">Chapter 3 · The Beginning</div>
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle" style="margin-bottom:1.8rem;">Written in my own words — every detail, every emotion, exactly as it happened between us.</p>
+        
+        <div style="width:85px; height:85px; margin:0 auto 1.5rem; border-radius:50%; border:2px solid var(--pink-300); padding:2px; box-shadow:0 0 20px rgba(244,63,94,0.4);">
+          <img src="assets/avatar.png" alt="Storyteller" style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+        </div>
+
+        <blockquote class="story-quote highlight-quote" style="margin-bottom:2rem;">
+          “Okay... let's go back to the beginning. The day everything quietly changed between us.”
+        </blockquote>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()">
+            <span>How We Met →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 3.2: How We Met & Bus Tablet Moment (With Real Photo from How We Met.md) -->
+    <div class="story-scene" id="scene-story-ch1" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-ch1">
+      <article class="story-card glass-panel story-card-full">
+        <div class="card-header-bar">
+          <span class="story-date">26.09.2025</span>
+          <span class="story-location">📍 IV Trip to Vagamon & Kochi</span>
+        </div>
+        
+        <!-- Real Cinematic Story Photo from How We Met.md -->
+        <div class="story-photo-cinematic" onclick="window.openPhotoModal('assets/photos/WhatsApp Image 2026-08-16 at 1.30.39 PM.jpeg', '26.09.2025 — IV Trip to Vagamon & Kochi')">
+          <img src="assets/photos/WhatsApp Image 2026-08-16 at 1.30.39 PM.jpeg" alt="How We Met Vagamon Kochi Memory" class="story-real-img">
+          <div class="photo-card-caption">
+            <span class="caption-text">📍 Vagamon & Kochi IV Trip Memory</span>
+            <span class="photo-zoom-hint">🔍 Tap to enlarge</span>
+          </div>
+        </div>
+
+        <div class="story-body">
+          <h3 class="story-card-title">Chapter 1: How We Met & The "Do You Need Tablet?" Moment</h3>
+          
+          <p>
+            The first conversation was a little embarrassing... while everyone else was enjoying the rain dance outside the bus, you were sitting inside looking so tired and exhausted. I climbed in, you were the only one in the bus, and I went to my seat and drank water. When I was about to get down, I asked you:
+          </p>
+
+          <blockquote class="story-quote">
+            “Hey, why are you looking so sad?”
+          </blockquote>
+
+          <p>
+            I was the most shy guy to speak to a girl, but somehow I found the guts to ask (honestly, I was scared to talk to you because you had that attitude girl vibe!). Then you said: <em>“I am on my periods.”</em> I was shocked to hear that, and out of nowhere I blurted out:
+          </p>
+
+          <blockquote class="story-quote pill-easter-trigger" id="pill-easter-trigger" title="Click to inspect this secret memory">
+            “Do you need tablet?” <span class="pill-badge" id="easter-pill-icon">💊</span>
+          </blockquote>
+
+          <p>
+            Literally the most embarrassing moment in my life... You smiled and asked: <em>“Oh, you have tablets for periods pain?”</em> I totally messed it up, you laughed at me, and I ran out as fast as I could... such a funny first meeting!
+          </p>
+
+          <p>
+            Later, while I was having fun with my friends, I could sense you watching the whole day from a distance. When the bus stopped at the tea stop on the state border, only me, the driver, and the cleaner were awake outside while everyone else was sleeping. I noticed you come out, and you brought a friend along just to talk to me:
+          </p>
+
+          <blockquote class="story-quote highlight-quote" style="margin-top:1.2rem;">
+            “Hey, take care and careful to your home go.” 🤍
+          </blockquote>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → First Date</span></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Scene 3.3: First Date & Fork Proposal -->
+    <div class="story-scene" id="scene-story-ch2" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-ch2">
+      <article class="story-card glass-panel story-card-full">
+        <div class="card-header-bar">
+          <span class="story-date">01.11.2025</span>
+          <span class="story-location">📍 Fairlands & Rasikas Restaurant</span>
+        </div>
+
+        <div class="story-body">
+          <h3 class="story-card-title">Chapter 2: The First Date, My Secret Notes & The Fork Incident</h3>
+          
+          <p>
+            We were chatting on Snapchat the day before, so intensely that your friends even asked if I loved you, and then you asked me out on a date for the next day. You arrived a bit late with a sad face. As you started opening up and feeling down about your family situation, somehow I reached out and held your hand. For the first time in my entire life, I held a girl's hand — and you held mine back so tight.
+          </p>
+
+          <h4 class="story-subheading">Reading My Notes in the Dessert Shop</h4>
+          <p>
+            We were sitting in a dessert shop after our meal. You somehow managed to take my phone and started reading all the secret notes I had written in the past for my future girlfriend, with lines like <em>“find a girl who loves you more than you do and protect her at all cost.”</em> You were amazed seeing all my journals and poetry. I tried grabbing my phone back, but you held my hand so tight that I was happily arrested in joy!
+          </p>
+
+          <h4 class="story-subheading">The Proposal with a Fork</h4>
+          <p>
+            When I first proposed to you, you didn't reject me or say yes immediately — you told me <em>“I need time.”</em> I gave you every single reason why I love you. Then, just to tease you, I said:
+          </p>
+
+          <blockquote class="story-quote">
+            “Tell me your decision quickly, I have other jobs to do! My friend Kaviya told me she will find another girl for me...”
+          </blockquote>
+
+          <p>
+            I even dialed Kaviya and said: <em>“She is not saying yes, let's find someone else.”</em> All of a sudden, you picked up a fork from the table, held it right to my neck and said:
+          </p>
+
+          <blockquote class="story-quote highlight-quote">
+            “Come again?” 😂🍴
+          </blockquote>
+
+          <p>
+            I immediately hung up the call and laughed! My hands wouldn't stop shaking after you held them.
+          </p>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → When I Fell For You</span></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Scene 3.4: When I Fell For You -->
+    <div class="story-scene" id="scene-story-ch3" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-ch3">
+      <article class="story-card glass-panel story-card-full">
+        <div class="card-header-bar">
+          <span class="story-date">The Spark</span>
+          <span class="story-location">📍 “Una Pudichu Iruku Romba”</span>
+        </div>
+
+        <div class="story-body">
+          <h3 class="story-card-title">Chapter 3: When I Fell For You</h3>
+          
+          <p>
+            In our early college days, I used to watch you sitting quietly in the first bench, observing everything around you and totally acting like the main character of the story.
+          </p>
+
+          <h4 class="story-subheading">The Clashing Night & That Heartfelt Text</h4>
+          <p>
+            After that misunderstanding regarding my friend Kaviya, I called you to ask if you had said those things. You said no. Late that night with no messages, I thought this was the end of us. I texted you: <em>“Ok, from now on I will not bother you, thanks for being a good friend, bye...”</em>
+          </p>
+
+          <p>
+            And then... you sent me an entire heartfelt paragraph and confessed:
+          </p>
+
+          <blockquote class="story-quote highlight-quote">
+            “Una pudichu iruku romba.” 🤍
+          </blockquote>
+
+          <p>
+            Many girls had tried talking to me before, but I never felt that spark. But whenever you showed up, I got so excited with butterflies in my stomach every time we spoke. That's when I knew in my heart you were the one.
+          </p>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Favorite Memories</span></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Scene 3.5: Favorite Memories with Real Photos from Favorite Memories.md -->
+    <div class="story-scene" id="scene-story-ch4" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-ch4">
+      <article class="story-card glass-panel story-card-full">
+        <div class="card-header-bar">
+          <span class="story-date">Special Moments</span>
+          <span class="story-location">📍 Sourced from Favorite Memories.md</span>
+        </div>
+
+        <div class="story-body">
+          <h3 class="story-card-title">Chapter 4: Favorite Memories</h3>
+          <p style="font-style:italic; color:var(--pink-200); margin-bottom:1.5rem;">
+            “Some moments with you are special because nothing huge happened—but somehow, I never forgot them.” 🤍
+          </p>
+
+          <div class="memories-vault-list" style="display:flex; flex-direction:column; gap:1.4rem;">
+            
+            <!-- Memory 1 -->
+            <div class="glass-panel" style="padding:1.2rem; border-left:3px solid var(--pink-400);">
+              <h4 style="color:#fff; margin-bottom:0.4rem;">📞 Memory 1 — The Call I Never Saw Coming (05/10/2025)</h4>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.5rem;">
+                Right before my football match, you texted me: <em>“All the best for your match. If you win, we can talk on the phone tomorrow.”</em> And the next day, you actually called. I was completely melting into your voice thinking: <em>“Is that really you talking to me right now… or am I dreaming?”</em>
+              </p>
+              <div style="font-size:0.85rem; color:var(--pink-300); font-style:italic; margin-top:0.4rem;">📷 Photo: Coming Soon...</div>
+            </div>
+
+            <!-- Memory 2 -->
+            <div class="glass-panel" style="padding:1.2rem; border-left:3px solid var(--pink-300);">
+              <h4 style="color:#fff; margin-bottom:0.4rem;">👑 Memory 2 — The Paper Queen Incident (YellowMatic Training)</h4>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.5rem;">
+                During our team challenge to make a paper king or queen, I pulled off my 100 IQ master plan: <em>“If we choose a queen from our side, we'll definitely win.”</em> You actually believed me and became our paper queen, and seeing you as the paper queen was completely worth it! 👑🤍
+              </p>
+              <div style="font-size:0.85rem; color:var(--pink-300); font-style:italic; margin-top:0.4rem;">📷 Photo: Coming Soon...</div>
+            </div>
+
+            <!-- Memory 3 -->
+            <div class="glass-panel" style="padding:1.2rem; border-left:3px solid var(--star-gold);">
+              <h4 style="color:#fff; margin-bottom:0.4rem;">🤍 Memory 3 — The Day I Actually Came to Salem for You</h4>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.5rem;">
+                One day you simply said: <strong>“I miss you.”</strong> The very next day, this lazy guy travelled all the way to Salem just to see you. We spent the entire day wandering around Fairlands, and we even accidentally matched our outfits. Pure fate. 😌🤍
+              </p>
+              <div style="font-size:0.85rem; color:var(--pink-300); font-style:italic; margin-top:0.4rem;">📷 Photo: Coming Soon...</div>
+            </div>
+
+            <!-- Memory 4 -->
+            <div class="glass-panel" style="padding:1.2rem; border-left:3px solid var(--pink-400);">
+              <h4 style="color:#fff; margin-bottom:0.4rem;">🏠 Memory 4 — The First Time I Visited Your House</h4>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.5rem;">
+                For the very first time, I visited your home with your friends. Walking into the place where you live felt so special — it was another precious step into your world.
+              </p>
+              <div style="font-size:0.85rem; color:var(--pink-300); font-style:italic; margin-top:0.4rem;">📷 Photo: Coming Soon...</div>
+            </div>
+
+            <!-- Memory 5 -->
+            <div class="glass-panel" style="padding:1.2rem; border-left:3px solid var(--border-glass-pink);">
+              <h4 style="color:#fff; margin-bottom:0.4rem;">✨ Memory 5 — The One We Haven't Written Yet</h4>
+              <p style="font-size:0.92rem; color:var(--text-secondary); margin-bottom:0.5rem;">
+                Some completely random day in our future that years later I'll look back on and think: <em>“Damn. I really loved that day with you.”</em>
+              </p>
+              <div style="font-size:0.85rem; color:var(--pink-300); font-style:italic; margin-top:0.4rem;">📷 Photo: Coming Soon...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Inside Jokes</span></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- Scene 3.6: Authentic Inside Jokes from Funny Moments.md -->
+    <div class="story-scene" id="scene-story-ch5" data-chapter="Chapter 3: Our Story" data-chapter-num="3" data-scene-id="scene-story-ch5">
+      <article class="story-card glass-panel story-card-full">
+        <div class="card-header-bar">
+          <span class="story-date">Daily Laughs</span>
+          <span class="story-location">📍 Sourced from Funny Moments.md</span>
+        </div>
+
+        <div class="story-body">
+          <h3 class="story-card-title">Chapter 5: Funny Moments & Inside Jokes</h3>
+          
+          <div style="display:flex; flex-direction:column; gap:1.2rem;">
+            <div class="glass-panel" style="padding:1.1rem; border-radius:12px;">
+              <h4 style="color:#fda4af; margin-bottom:0.4rem;">😂 That Marriage Function Joke</h4>
+              <p style="font-size:0.92rem; color:#fff;">
+                You were attending a marriage function and cracked this hilarious joke in our chat: <em>“etho sathuja santhosam mapla munjila theriyudhu pavommmmm”</em> 😂
+              </p>
+            </div>
+
+            <div class="glass-panel" style="padding:1.1rem; border-radius:12px;">
+              <h4 style="color:#fda4af; margin-bottom:0.4rem;">🤭 When Your Mother Talked with Me</h4>
+              <p style="font-size:0.92rem; color:#fff;">
+                I was on the phone talking with you, and all of a sudden you handed the phone over to your mother and complained about me — saying I called you the 'main character' and called your father a 'comedy police' even though he's a school headmaster! LOLLL!
+              </p>
+            </div>
+
+            <div class="glass-panel" style="padding:1.1rem; border-radius:12px;">
+              <h4 style="color:#fda4af; margin-bottom:0.4rem;">💬 Things You Always Tell Me</h4>
+              <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.4rem; font-size:0.9rem; color:var(--text-secondary);">
+                <li>✦ <em>“Speak clearly and watch your slang”</em></li>
+                <li>✦ <em>“Give efforts and bareminimum”</em></li>
+                <li>✦ <em>“Plan something before going”</em></li>
+                <li>✦ <em>“Inform me before anything”</em></li>
+              </ul>
+            </div>
+
+            <div class="glass-panel" style="padding:1.1rem; border-radius:12px;">
+              <h4 style="color:#fda4af; margin-bottom:0.4rem;">😂 Things I Always Do</h4>
+              <ul style="list-style:none; padding:0; display:flex; flex-direction:column; gap:0.4rem; font-size:0.9rem; color:var(--text-secondary);">
+                <li>✦ Pullingo slang la pesuven</li>
+                <li>✦ Do small things to make you happy and then disappear</li>
+                <li>✦ Don't make plans often (or I'm just terrible at it!)</li>
+                <li>✦ Dressing like a drug addict 😂</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Timeline</span></button>
+        </div>
+      </article>
+    </div>
+
+    <!-- ==================== CHAPTER 4: TIMELINE (With Photos from Our Journey.md) ==================== -->
+    <div class="story-scene" id="scene-timeline" data-chapter="Chapter 4: Timeline" data-chapter-num="4" data-scene-id="scene-timeline">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Our Journey</div>
+        <h2 class="section-title">Constellation Timeline</h2>
+        <p class="section-subtitle" style="margin-bottom:1.8rem;">Every milestone from the day we met to today, with our real photos.</p>
+        
+        <div id="timeline-nodes-list" class="timeline-nodes-container" style="max-height:55vh; overflow-y:auto; padding-right:8px; text-align:left;">
+          <!-- Rendered dynamically from UniverseConfig.timeline with real photos -->
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Couple Quiz</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 5: COUPLE QUIZ ==================== -->
+    <div class="story-scene" id="scene-quiz" data-chapter="Chapter 5: Couple Quiz" data-chapter-num="5" data-scene-id="scene-quiz" data-on-enter="quiz-start">
+      <div class="quiz-container-box glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">How Well Do You Know Us?</div>
+        <h2 class="section-title">The Couple Quiz</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">10 questions with our real memories and inside jokes.</p>
+
+        <!-- Progress Header -->
+        <div class="quiz-progress-hud" style="display:flex; justify-content:space-between; margin-bottom:1rem; font-size:0.9rem; color:var(--pink-200);">
+          <span>Question <strong id="quiz-current-num">1</strong> of <strong id="quiz-total-num">10</strong></span>
+          <span>Score: <strong id="quiz-score">0</strong> ✦</span>
+        </div>
+        <div style="width:100%; height:4px; background:rgba(255,255,255,0.1); border-radius:2px; margin-bottom:1.5rem; overflow:hidden;">
+          <div id="quiz-progress-bar" style="height:100%; width:10%; background:linear-gradient(90deg, #f43f5e, #fda4af); transition:width 0.3s ease;"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div id="quiz-card-container">
+          <h3 id="quiz-question-text" class="quiz-q-title" style="font-size:1.35rem; color:#fff; margin-bottom:1.5rem; line-height:1.5;">Question loading...</h3>
+          <div id="quiz-options-grid" class="quiz-options-grid" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+          <div id="quiz-feedback-box" class="quiz-feedback-box hidden" style="margin-top:1.2rem; padding:1rem; border-radius:12px; background:rgba(255,255,255,0.06);">
+            <p id="quiz-feedback-text" style="font-size:1rem; color:var(--pink-200); margin-bottom:0.8rem;"></p>
+            <button id="quiz-next-btn" class="cosmic-btn primary-btn btn-sm">Next Question →</button>
+          </div>
+        </div>
+
+        <!-- Results Card -->
+        <div id="quiz-results-container" class="quiz-results-container hidden" style="padding:1.5rem 0;">
+          <div style="font-size:3.5rem; margin-bottom:0.8rem;">🏆 🤍 ✨</div>
+          <h3 style="font-size:1.8rem; color:#fff; margin-bottom:0.5rem;">Quiz Complete!</h3>
+          <p style="font-size:1.2rem; color:var(--pink-200); margin-bottom:1rem;">Your Final Score: <strong id="quiz-final-score" style="font-size:1.6rem; color:#fff;">0</strong> / 10</p>
+          <blockquote id="quiz-score-evaluation" style="font-family:var(--font-display); font-size:1.3rem; font-style:italic; color:#fff; padding:1rem; background:rgba(244,63,94,0.12); border-radius:12px; margin-bottom:1.5rem;"></blockquote>
+          <p style="font-size:1.1rem; color:#fda4af; margin-bottom:1.5rem;">Unlock: <em>“i love you sooo mucchhhhhhhhhhhhh”</em> 🤍</p>
+          <button class="cosmic-btn secondary-btn btn-sm" id="quiz-restart-btn">Retake Quiz</button>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Memory Unlock</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 6: MEMORY UNLOCK ==================== -->
+    <div class="story-scene" id="scene-memory-unlock" data-chapter="Chapter 6: Memory Unlock" data-chapter-num="6" data-scene-id="scene-memory-unlock">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Interactive Starlight</div>
+        <h2 class="section-title">Memory Unlock</h2>
+        <p class="section-subtitle" style="margin-bottom:1.8rem;">Complete the memory challenge to unseal our real photographs.</p>
+
+        <div id="memory-unlock-grid" class="memory-unlock-grid">
+          <!-- Dynamically rendered by MemoryUnlockEngine -->
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Complete My Sentence</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 7: COMPLETE MY SENTENCE ==================== -->
+    <div class="story-scene" id="scene-complete-sentence" data-chapter="Chapter 7: Complete My Sentence" data-chapter-num="7" data-scene-id="scene-complete-sentence">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Conversational Starlight</div>
+        <h2 class="section-title">Complete My Sentence</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">Choose the words that match our actual conversations.</p>
+
+        <div class="sentence-container">
+          <div class="sentence-starter-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
+              <span id="sentence-round-title" style="font-size:0.85rem; color:var(--pink-300); font-weight:600; text-transform:uppercase;">Round 1</span>
+              <span id="sentence-round-num" style="font-size:0.85rem; color:var(--text-muted);">1 / 4</span>
+            </div>
+            <p id="sentence-starter-text" class="sentence-starter-text">When the gossip started in our department after the IV trip, I told you:</p>
+            <div id="sentence-starter-quote" class="sentence-starter-quote">“Dindigul na lockuuu...”</div>
+          </div>
+
+          <div id="sentence-options-grid" class="sentence-options-grid">
+            <!-- Dynamically rendered by CompleteSentenceEngine -->
+          </div>
+
+          <div id="sentence-feedback-box" class="quiz-feedback-box hidden" style="margin-top:1.2rem; padding:1.2rem; border-radius:14px; background:rgba(244,63,94,0.12); border:1px solid var(--border-glass-pink);">
+            <p id="sentence-feedback-text" style="font-family:var(--font-display); font-size:1.2rem; font-style:italic; color:#fff; margin-bottom:1rem;"></p>
+            <button id="sentence-next-btn" class="cosmic-btn primary-btn btn-sm">Next Sentence →</button>
+          </div>
+        </div>
+
+        <div class="scene-nav-actions" style="margin-top:1.5rem;">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Memory Gallery</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 8: PHOTOS & MEMORIES ==================== -->
+    <div class="story-scene" id="scene-photos" data-chapter="Chapter 8: Photos" data-chapter-num="8" data-scene-id="scene-photos">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Moments Frozen In Time</div>
+        <h2 class="section-title">Memory Gallery</h2>
+        <p class="section-subtitle" style="margin-bottom:1.8rem;">Every chapter of our story captured in polaroid frames.</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:1.2rem;">
+          <!-- P001 -->
+          <div class="gallery-photo-card" onclick="window.openPhotoModal('assets/photos/6064496562601136765.jpg', 'P001: Surprise visit to your home')">
+            <img src="assets/photos/6064496562601136765.jpg" alt="Surprise visit to your home" class="gallery-photo-img">
+            <div class="gallery-photo-caption">
+              <span class="gallery-photo-title">P001: Surprise Visit to Your Home</span>
+              <span class="gallery-photo-desc">I pranked your brother as a bank officer and totally scared him 😂</span>
+            </div>
+          </div>
+
+          <!-- P002 -->
+          <div class="gallery-photo-card" onclick="window.openPhotoModal('assets/photos/6064496562601136740.jpg', 'P002: Fit check & All-time favorite photo')">
+            <img src="assets/photos/6064496562601136740.jpg" alt="Fit check and all time favorite" class="gallery-photo-img">
+            <div class="gallery-photo-caption">
+              <span class="gallery-photo-title">P002: All-Time Favorite Photo</span>
+              <span class="gallery-photo-desc">Fit check... you look like a cute little girl qwwwwww 🤍</span>
+            </div>
+          </div>
+
+          <!-- P003 -->
+          <div class="gallery-photo-card" onclick="window.openPhotoModal('assets/photos/6064496562601136763.jpg', 'P003: Sleeping beauty')">
+            <img src="assets/photos/6064496562601136763.jpg" alt="Sleeping beauty" class="gallery-photo-img">
+            <div class="gallery-photo-caption">
+              <span class="gallery-photo-title">P003: Sleeping Beauty</span>
+              <span class="gallery-photo-desc">Peacefully sleeping... one of my most precious captures 😴✨</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Our Soundtrack</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 9: SOUNDTRACK ==================== -->
+    <!-- Scene 9.1: Interactive Soundtrack Reveal -->
+    <div class="story-scene" id="scene-soundtrack-vinyl" data-chapter="Chapter 9: Our Soundtrack" data-chapter-num="9" data-scene-id="scene-soundtrack-vinyl">
+      <div class="glass-panel text-center" style="padding:2.2rem 1.5rem; max-width:680px; margin:0 auto;">
+        <div class="section-badge">🎵 Our Soundtrack</div>
+        <h2 class="section-title">The Melodies of Us</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">A soundtrack of 12 songs that tell our entire story.</p>
+
+        <!-- Track Navigation & Counter -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.2rem; background:rgba(255,255,255,0.04); padding:0.6rem 1.2rem; border-radius:30px; border:1px solid rgba(253,164,175,0.2);">
+          <button id="soundtrack-prev-track-btn" class="cosmic-btn btn-sm">◀ Prev Track</button>
+          <span id="soundtrack-song-indicator" style="font-weight:600; color:var(--pink-200); font-size:0.95rem;">Track 1 of 12</span>
+          <button id="soundtrack-next-track-btn" class="cosmic-btn btn-sm">Next Track ▶</button>
+        </div>
+
+        <!-- Mystery Card State -->
+        <div id="soundtrack-mystery-card" class="glass-panel" style="padding:2rem 1.5rem; border-radius:18px; border:1px dashed var(--pink-400); background:rgba(20,5,15,0.6); margin-bottom:1.5rem;">
+          <div class="vinyl-player-box" style="margin:0 auto 1.2rem; width:130px; height:130px; position:relative;">
+            <div class="vinyl-disc" id="vinyl-disc" style="width:100%; height:100%; border-radius:50%; background:radial-gradient(circle, #2a0815 0%, #08030c 100%); border:3px solid #fda4af; box-shadow:0 0 30px rgba(244,63,94,0.5); display:flex; align-items:center; justify-content:center;">
+              <div style="width:45px; height:45px; border-radius:50%; background:linear-gradient(135deg, #f43f5e, #ec4899); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.2rem;">🎵</div>
+            </div>
+          </div>
+          <div id="soundtrack-reveal-question" class="mystery-question-quote">
+            "Which song did we play while standing on the rooftop under the midnight sky?"
+          </div>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.2rem;">Can you guess this melody from our story?</p>
+          <button id="reveal-song-btn" class="cosmic-btn primary-btn">
+            <span>✨ Reveal Track ✦</span>
+          </button>
+        </div>
+
+        <!-- Revealed Card State -->
+        <div id="soundtrack-revealed-card" class="glass-panel hidden song-revealed-panel" style="padding:1.8rem 1.4rem; border-radius:18px; margin-bottom:1.5rem; text-align:left;">
+          <div class="song-revealed-header text-center">
+            <h3 id="soundtrack-revealed-title" class="song-revealed-title">Until I Found You</h3>
+            <p id="soundtrack-revealed-artist" class="song-revealed-artist">Stephen Sanchez</p>
+          </div>
+
+          <div class="song-real-player-box">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:0.8rem;">
+              <button id="soundtrack-reveal-play-btn" class="cosmic-btn primary-btn" style="padding:0.7rem 1.6rem;">
+                <span class="btn-play-icon">▶</span> <span>Play Track</span>
+              </button>
+              <button id="play-anthem-btn" class="cosmic-btn btn-sm" style="display:none;">
+                <span class="btn-play-icon">▶</span> <span>Anthem</span>
+              </button>
+            </div>
+            <p id="soundtrack-revealed-lyrics" style="font-family:var(--font-display); font-size:1.15rem; font-style:italic; color:#fff; text-align:center; line-height:1.5; margin:0.5rem 0;">
+              "I would never fall in love until I found her..."
+            </p>
+          </div>
+
+          <div class="song-avatar-comment">
+            <strong style="color:var(--pink-300); display:block; margin-bottom:0.3rem;">💬 Our Memory:</strong>
+            <p id="soundtrack-revealed-why" style="margin:0; font-size:0.95rem; line-height:1.5;"></p>
+          </div>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Complete Playlist →</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 9.2: All 12 Songs Playlist with Individual Play Controls -->
+    <div class="story-scene" id="scene-soundtrack-playlist" data-chapter="Chapter 9: Our Soundtrack" data-chapter-num="9" data-scene-id="scene-soundtrack-playlist">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Our Complete Playlist</div>
+        <h2 class="section-title">All 12 Songs & Personal Memories</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">Every track with real audio playback and personal stories from our journey.</p>
+
+        <div id="songs-grid" class="songs-grid" style="max-height:55vh; overflow-y:auto; padding-right:6px;">
+          <!-- Dynamically rendered by app.js with individual play buttons -->
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → What If...? ✨</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 10: WHAT IF...? ==================== -->
+    <div class="story-scene" id="scene-what-if" data-chapter="Chapter 10: What If...?" data-chapter-num="10" data-scene-id="scene-what-if" data-on-enter="what-if-start">
+      <div class="glass-panel text-center what-if-stage-container" style="padding:2.2rem 1.5rem;">
+        <div class="section-badge">✨ What If...?</div>
+        <h2 class="section-title">In Another Multiverse</h2>
+        
+        <!-- Progress Bar & Question Counter -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem; font-size:0.9rem; color:var(--pink-200);">
+          <span>Multiverse Timeline</span>
+          <span>Question <strong id="what-if-num" style="color:#fff;">1</strong> of 15</span>
+        </div>
+        <div style="width:100%; height:6px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; margin-bottom:1.8rem;">
+          <div id="what-if-progress-bar" style="width:6.6%; height:100%; background:linear-gradient(90deg, #f43f5e, #fda4af); transition:width 0.4s ease;"></div>
+        </div>
+
+        <!-- Storyteller Avatar & Speech Bubble -->
+        <div style="display:flex; flex-direction:column; align-items:center; margin-bottom:1.5rem;">
+          <div class="what-if-avatar-frame" style="position:relative; width:110px; height:110px; margin-bottom:1rem;">
+            <img id="what-if-avatar-img" src="assets/avatar.png" alt="Storyteller Avatar" style="width:100%; height:100%; border-radius:50%; object-fit:cover; border:3px solid var(--pink-400); box-shadow:0 0 25px rgba(244,63,94,0.5);">
+            <div id="what-if-mood-badge" style="position:absolute; bottom:0; right:0; width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg, #f43f5e, #ec4899); border:2px solid #fff; display:flex; align-items:center; justify-content:center; font-size:1.1rem;">
+              ✨
+            </div>
+          </div>
+
+          <!-- Typewriter Question Bubble -->
+          <div class="what-if-speech-bubble glass-panel" style="width:100%; max-width:540px; padding:1.2rem 1.4rem; border-radius:16px; border:1px solid rgba(253,164,175,0.4); background:rgba(20,5,15,0.65); min-height:80px; display:flex; align-items:center; justify-content:center;">
+            <p id="what-if-question-text" style="font-family:var(--font-display); font-size:1.3rem; font-style:italic; color:#fff; line-height:1.5; margin:0;">
+              What if...?
+            </p>
+          </div>
+        </div>
+
+        <!-- Reveal Button Container (displayed when typing completes) -->
+        <div id="what-if-reveal-container" style="margin-bottom:1.5rem; display:none;">
+          <button id="what-if-reveal-btn" class="cosmic-btn primary-btn" style="font-size:1rem; padding:0.8rem 2rem;">
+            <span>✨ Tap To Reveal Answer ✦</span>
+          </button>
+        </div>
+
+        <!-- Answer Card Box (hidden initially, revealed on click) -->
+        <div id="what-if-answer-box" class="glass-panel hidden" style="padding:1.4rem; border-radius:18px; margin-bottom:1.5rem; display:none; flex-direction:column; align-items:center; gap:1rem; animation:fadeInUp 0.4s ease;">
+          <div class="what-if-photo-frame" style="width:100%; max-width:420px; max-height:280px; border:2px solid rgba(253,164,175,0.4); box-shadow:0 0 25px rgba(244,63,94,0.4); border-radius:16px; overflow:hidden;">
+            <img id="what-if-img" src="" alt="What If Moment" style="width:100%; height:100%; max-height:280px; object-fit:cover; display:block;">
+          </div>
+          <h3 id="what-if-title" style="font-family:var(--font-display); font-size:1.45rem; color:#fff; margin:0;"></h3>
+          <div style="background:rgba(244,63,94,0.12); border-left:3px solid var(--pink-400); padding:0.9rem 1.2rem; border-radius:12px; width:100%; max-width:500px; text-align:left;">
+            <p id="what-if-reaction-text" style="margin:0; font-size:1rem; color:#fff; line-height:1.5;"></p>
+          </div>
+          <button id="what-if-next-step-btn" class="cosmic-btn primary-btn" style="margin-top:0.5rem;">
+            <span>Next What If →</span>
+          </button>
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Special Places</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 11: SPECIAL PLACES ==================== -->
+    <div class="story-scene" id="scene-places" data-chapter="Chapter 11: Special Places" data-chapter-num="11" data-scene-id="scene-places">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Our Map Across The Stars</div>
+        <h2 class="section-title">Special Places</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">Every place where we made memories together, and places we will go.</p>
+
+        <div class="places-tab-nav">
+          <button class="tab-btn active" data-pane="been">Places We've Been</button>
+          <button class="tab-btn" data-pane="love">Places We Love</button>
+          <button class="tab-btn" data-pane="future">Places We Will Go</button>
+        </div>
+
+        <div id="places-grid-container" class="places-grid" style="max-height:55vh; overflow-y:auto; padding-right:6px;">
+          <!-- Dynamically rendered by app.js from UniverseConfig.places with real photos -->
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Reasons I Love You</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 12: REASONS I LOVE YOU ==================== -->
+    <div class="story-scene" id="scene-reasons" data-chapter="Chapter 12: Reasons I Love You" data-chapter-num="12" data-scene-id="scene-reasons" data-on-enter="reasons-intro">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">100 Reasons</div>
+        <h2 class="section-title">Why I Love You</h2>
+        <p class="section-subtitle" style="margin-bottom:1.2rem;">All the little things, quirks, and reasons why you mean the world to me.</p>
+
+        <div class="reasons-filters" style="display:flex; justify-content:center; gap:8px; margin-bottom:1.5rem; flex-wrap:wrap;">
+          <button class="filter-btn active" data-category="all">All Reasons</button>
+          <button class="filter-btn" data-category="core">Core Reasons</button>
+          <button class="filter-btn" data-category="quirks">Little Quirks</button>
+          <button class="filter-btn" data-category="notice">Things I Notice</button>
+        </div>
+
+        <div id="reasons-deck" class="reasons-deck-grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem; max-height:50vh; overflow-y:auto; padding-right:6px; text-align:left;">
+          <!-- Dynamically rendered by app.js -->
+        </div>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → Secrets & Clues</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 13: SECRETS & EASTER EGGS ==================== -->
+    <div class="story-scene" id="scene-secrets" data-chapter="Chapter 13: Secrets & Clues" data-chapter-num="13" data-scene-id="scene-secrets">
+      <div class="glass-panel text-center" style="padding:2rem 1.5rem;">
+        <div class="section-badge">Hidden Starlight</div>
+        <h2 class="section-title">Secrets & Easter Eggs</h2>
+        <p class="section-subtitle" style="margin-bottom:1.5rem;">Secret clues and hidden messages left waiting just for you.</p>
+
+        <div class="quotes-carousel-box glass-panel" style="padding:1.5rem; border-radius:16px; margin-bottom:1.5rem;">
+          <div style="font-size:2rem; margin-bottom:0.5rem;">💌 ✧</div>
+          <p id="hidden-message-text" style="font-family:var(--font-display); font-size:1.3rem; font-style:italic; color:#fff; min-height:3.5rem; line-height:1.6;">
+            “You don't need to be perfect to be my favorite person in the entire universe.” 🤍
+          </p>
+          <div style="display:flex; justify-content:center; align-items:center; gap:1rem; margin-top:1rem;">
+            <button id="prev-quote-btn" class="cosmic-btn btn-sm">← Prev</button>
+            <span id="quote-index-indicator" style="font-size:0.85rem; color:var(--text-muted);">1 / 5</span>
+            <button id="next-quote-btn" class="cosmic-btn btn-sm">Next →</button>
+          </div>
+        </div>
+
+        <p style="font-size:0.9rem; color:var(--pink-300);">💊 Bus Tablet Memory Easter Egg Status: <strong id="egg-pill-status" style="color:#fff;">Active</strong></p>
+
+        <div class="scene-nav-actions">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → The Final Question</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 14: THE FINAL QUESTION ==================== -->
+    <div class="story-scene" id="scene-final-question" data-chapter="Chapter 14: The Celestial Key" data-chapter-num="14" data-scene-id="scene-final-question">
+      <div class="glass-panel text-center" style="padding:2.5rem 1.5rem;">
+        <div class="section-badge">The Final Clue</div>
+        <h2 class="section-title">The Celestial Key</h2>
+        <p class="section-subtitle" style="margin-bottom:1.8rem;">Before we unroll the birthday letter... answer one final question.</p>
+
+        <div class="final-q-container">
+          <blockquote style="font-family:var(--font-display); font-size:1.4rem; font-style:italic; color:#fff; line-height:1.6; margin-bottom:1.5rem; padding:1.2rem; background:rgba(255,255,255,0.05); border-radius:14px; border:1px solid var(--border-glass-pink);">
+            “You found the memories. You found the clues. But there is one number that has been waiting for you from the very beginning. What is our celestial key?”
+          </blockquote>
+
+          <div id="final-q-options" class="final-key-grid">
+            <!-- Dynamically rendered by FinalQuestionEngine -->
+          </div>
+
+          <div id="final-q-feedback" class="final-q-feedback hidden" style="margin-bottom:1.5rem;"></div>
+
+          <button id="final-q-continue-btn" class="cosmic-btn primary-btn hidden">
+            <span>Proceed to Birthday Letter 💌 →</span>
+          </button>
+        </div>
+
+        <div class="scene-nav-actions" style="margin-top:1.5rem;">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 15: BIRTHDAY LETTER ==================== -->
+    <div class="story-scene" id="scene-letter" data-chapter="Chapter 15: Birthday Letter" data-chapter-num="15" data-scene-id="scene-letter" data-on-enter="letter-intro" data-validator="letter-unsealed">
+      <div class="parchment-scroll-container">
+        <!-- Floating Candle Glow Accents -->
+        <div class="candle-glow candle-left"></div>
+        <div class="candle-glow candle-right"></div>
+
+        <!-- 3D Wax Seal Ceremony Button -->
+        <div class="wax-seal-wrapper" id="wax-seal-wrapper">
+          <button class="wax-seal-btn" id="wax-seal-btn" title="Click to break the wax seal and unroll your letter">
+            <div class="wax-seal-inner">
+              <span class="wax-monogram">M & B<br><span class="wax-sub">✦ 11 ✦</span></span>
+            </div>
+            <div class="wax-rim"></div>
+          </button>
+          <p class="wax-seal-hint" id="wax-seal-hint">Break the royal seal to read your letter</p>
+        </div>
+
+        <!-- The Vintage Antique Parchment Sheet with Complete Authentic Letter -->
+        <div class="parchment-body-container parchment-rolled" id="parchment-body-container">
+          <div class="parchment-roller roller-top"></div>
+          
+          <div class="parchment-sheet" style="max-height:68vh; overflow-y:auto;">
+            <div class="parchment-header text-center">
+              <span class="parchment-date">27th July · Midnight Starlight</span>
+              <h2 class="parchment-letter-title">💌 Happy Birthday, Bavya Sri</h2>
+              <p class="parchment-to" style="font-family:var(--font-display); font-size:1.3rem; color:#6b2809; margin-top:0.3rem;"><strong>To:</strong> Bavya Sri Manikandan <span class="white-heart">🤍</span></p>
+              <div class="parchment-divider">✧ ✦ ✧</div>
+            </div>
+
+            <div class="parchment-letter-text">
+              <h2 class="parchment-section-heading">💌 Happy Birthday, Bavya</h2>
+              <p><strong>To:</strong> Bavya Sri Manikandan <span class="white-heart">🤍</span></p>
+              <h3 class="parchment-subheading">🤍 My Dear Bondamuki,</h3>
+              <p>Heyyyyy… many more happy returns of the dayyyyy 🥳🎂<span class="white-heart">🤍</span></p>
+              <p>Enaaaa… story lam mention panna aramchitaingalaaa? 😂</p>
+              <p>Un fans… seri seri 😌😂</p>
+              <p>Pona varusha intha naal nee vera edathula, na vera edathula irunthom…</p>
+              <p>Maybe pesikittadhu kuda kedayadhu 🥹</p>
+              <p>Na un repost-ku like poduven <span class="white-heart">🤍</span></p>
+              <p>Nee en notes-ku like poduva <span class="white-heart">🤍</span></p>
+              <p>Mashallah… like pote oru <strong>6 masatha ootirukom</strong> 😭😂<span class="white-heart">🤍</span></p>
+              <h3 class="parchment-subheading">🌸 How It All Started</h3>
+              <blockquote class="parchment-quote">Manifestation is an art of desire something you need to achieve. ✨</blockquote>
+              <p>Na enna dha college joining late-aa pannalum class-ku seekrama varanum dha paapen.</p>
+              <p>Vantha konja neram thaniya irukalam, ethachi write pannalam apdinu…</p>
+              <p>Ana enaku munnadi oru ponnu vandhu class oda first bench-la ukkanthu, etho life tholachatha maari ukkanthu irukum 😂</p>
+              <p>Evan class kula varan poran, ethayume kavnikama… na appo dha una nalla note pannen 👀<span class="white-heart">🤍</span></p>
+              <p>Hair-a cut panni, konjam messy-aa comb panni, oru alagana butterfly 🦋 white clip potruntha.</p>
+              <p>Anaiki nee oru <strong>blue colour chudithar with rainbow shawl</strong> 🌈💙</p>
+              <p>Short irukratha katta kudathu nu atha thandi heels potrukaaaaaa 👠😂</p>
+              <p>Aprm unoda college bag — green, blue and white striped 🎒</p>
+              <p>Atha na last-la irunthu Google Lens-la photo pidika try pannen… kedaikala 😭😂</p>
+              <p>Etho tiffin box-la kondu vanthu spoon-la saptu apdiye mudi ulla vachuta 🍱😂</p>
+              <p>Aprm ena dailyum varuven…</p>
+              <p><strong>seekrama… ma una pkrathukuuu</strong> 👀<span class="white-heart">🤍</span></p>
+              <p>Nee ena paapa nu expect panni illa…</p>
+              <p>Suma nee yaru therinjikalam dha…</p>
+              <p><strong>Name:</strong> Bavya Sri</p>
+              <p><strong>Day scholar</strong></p>
+              <p>Avlothan theriyum 😭😂</p>
+              <p>Na yartiyum perusa una pathi visarikala…</p>
+              <p>Anaaaa… una pathi na en book-la mention panniruken 😂📖</p>
+              <p>Oru 1/2 pkm-ku avlothan.</p>
+              <p>Thappa lam ethum eluthala 😌</p>
+              <blockquote class="parchment-quote">A silent girl pretending to be the main character syndrome with a high heel 😂👠</blockquote>
+              <p>Aprm oru incident-la book-kum Govindaaaaa 😭📚😂</p>
+              <p>Nee kepiya apo apo en notes-a pathu pathu…</p>
+              <p><strong>"Entha kavitha yaruku eluthuna?"</strong></p>
+              <p><strong>"Antha kavidhai yaruku eluthuna?"</strong> 👀😂</p>
+              <p>Sonna <strong>CONFIRM O L U</strong> nu solluva 😭😂</p>
+              <p>Vanthu pesa thariyum illa…</p>
+              <p>Sambandhame illama ethuku vanthu pesikitu…</p>
+              <p><strong>"Nama kadhal notes-la ye mudichiratom"</strong> nu vitten 😂<span class="white-heart">🤍</span></p>
+              <p>Na ena kanava kanden…</p>
+              <p><strong>Belgium waffle-la vachu ellathiyum padichu paapen nu…</strong> 🧇😂</p>
+              <p>Just oru <strong>Happy Birthday</strong> message enaku sonna first time…</p>
+              <p>Athuve enaku romba surprising-aa eruntuchu 🥹<span class="white-heart">🤍</span></p>
+              <p><strong>"Intha pillaiki message lam panna theriyuma?"</strong> 😂</p>
+              <p>Appayachi convo build pannalam nu patha…</p>
+              <p><strong>Mudilaaaaa</strong> 😭😂</p>
+              <p>Seri…</p>
+              <p>Adutha naal chocolate kuduthachi peslamnu patha 🍫</p>
+              <p>Athukum mudialaaaa 😭</p>
+              <p>Athan un friend-ta kuduthu kuduka sonnen.</p>
+              <p>Na expect pannala…</p>
+              <p>Vangitu vanthu <strong>neengale kuduthirukalam la</strong> nu 😭😂</p>
+              <p>Message pannuva nu… 📱👀</p>
+              <p>Un birthday kuda wish panla…</p>
+              <p>Ana ipo paaru…</p>
+              <p><strong>Nee illama oru nimisham kuda iruka mudiyala enala.</strong> <span class="white-heart">🤍</span>🥹</p>
+              <p>Bavi ena panra?</p>
+              <p>Saptrupala?</p>
+              <p>Reels ethum anupichala? 😂📱</p>
+              <p>Nu dha mind sollikite irukum.</p>
+              <p>Na yarukagavum <strong>"message pannunga"</strong> nu wait pannave maten di…</p>
+              <p>But ipo varayum enaku oru vishiyam nadakrapo butterflies dha 🦋</p>
+              <p><strong>berry_baxzz liked your note</strong></p>
+              <p><strong>berry_baxzz liked your story</strong></p>
+              <p>Apdiyeeeee… paarapeen 😭<span class="white-heart">🤍</span></p>
+              <p>Un ID-la irunthu <strong>4+ messages</strong> katumla…</p>
+              <p>Apo lam ena vela ya irunthalum vittutu ukkanthu pathutu irupen 😂<span class="white-heart">🤍</span>📱</p>
+              <p>Enadi pna ena………</p>
+              <p><strong>CONFIRM etho black magic tha di try pniruka en mela</strong> 🪄😂</p>
+              <p>Oru egoistic, boring, unemotional, nerdy and not-that-good-looking guy…</p>
+              <p>Falling for a <strong>4'8" girl</strong> 😭<span class="white-heart">🤍</span></p>
+              <p>With so much love, cuteness, charming eyes and melting voice 🥹<span class="white-heart">🤍</span></p>
+              <p>Un moku dha di ammu…</p>
+              <p>Unaku alagu epathum 😭😂</p>
+              <p>Kovathula antha mooku mela kovam dance adum paaruuu 😂</p>
+              <p>Aprm antha alagana china china meesa anga anga 😭😂</p>
+              <p>Nee ena thititu irukrapo…</p>
+              <p><strong>"Inum pkm va… inum pkm va…"</strong> nu koopdra un lips… <span class="white-heart">🤍</span></p>
+              <p>Epdiya sorry solluvanga nu…</p>
+              <p>Un kalluthu ekkathoda engita kekum 🥹<span class="white-heart">🤍</span></p>
+              <p>Yaarachi una patha…</p>
+              <p>Un idupu kucha pattu en kaya vanthu tight-aa pudichuka sollum <span class="white-heart">🤍</span></p>
+              <p>Na ena stress-aa irunthalum seri…</p>
+              <p>Kovama irunthalum seri…</p>
+              <p><strong>Un smell dha ena heal panum.</strong> 🥹<span class="white-heart">🤍</span></p>
+              <blockquote class="parchment-quote">"Don't worry, you're safe here." 🫂🤍</blockquote>
+              <p>Nee ena jeicha ta di…</p>
+              <p><strong>True love is a myth</strong> nu suthitu erunthavan-ku…</p>
+              <p>Love na epdi dha irukum nu kattita. <span class="white-heart">🤍</span></p>
+              <p>Thanks for being with me…</p>
+              <p>And carrying this irresponsible guy most of the time 😂<span class="white-heart">🤍</span></p>
+              <p>Namakku pidichavangalkaaga ivlo vena pnlm…</p>
+              <p>Avanga thirumba namblaye hurt pnlm paravallaaa <span class="white-heart">🤍</span></p>
+              <p>Yaaru pechiyum kekatha nanu…</p>
+              <p>Nee sonna <strong>"seri"</strong> nu ketukren. 🥹</p>
+              <p><strong>I have changed.</strong></p>
+              <p>Enake theriyuthu athu. <span class="white-heart">🤍</span></p>
+              <p>Aprm ungita onu sollanum…</p>
+              <p>Na sumave entha ponnungalayum nimnthu pka maten…</p>
+              <p>Nee vanthathu-ku aprm…</p>
+              <p><strong>Una thavira vera yarum en kannuku theriyama poitaanga.</strong> <span class="white-heart">🤍</span></p>
+              <p>Enna dha nee ena kovathula adichalum, thitunalum seri…</p>
+              <p><strong>Namba mela la thappu eruku… athana thirtra kova padura.</strong> 😂<span class="white-heart">🤍</span></p>
+              <p>"Ava ungita dha kathuva loosu…</p>
+              <p>Aprm vanthu konjuva"</p>
+              <p>Apdinu dha yosipen 😂</p>
+              <p>Vera ponnunga ta poi time pass-ku pesanum…</p>
+              <p>Vera girls oda attention grab pannanum…</p>
+              <p>Nu nenaika maten.</p>
+              <p>Oru love note pota sambandhame illatha ponnungalm like podum…</p>
+              <p><strong>Ana target matum kandukave kandukaatha…</strong></p>
+              <p>Paithaykaarriiiiii 😂<span class="white-heart">🤍</span></p>
+              <p>Enaku yarum enoda full name solli koopita pudikadhu.</p>
+              <p>Ennaala romba close illathavanga dha apdi koopduvanga.</p>
+              <p>But…</p>
+              <p><strong>Nee enaya full name solli koopdrapa matum enaku romba pudikum.</strong> <span class="white-heart">🤍</span></p>
+              <p>Apdiye un peru…</p>
+              <p>Un lips-la…</p>
+              <p><strong>"Manikandan…"</strong></p>
+              <p>Apdinu sollum paaru…</p>
+              <blockquote class="parchment-quote">"What did I want more than this?" 🥹🤍</blockquote>
+              <p>Un kuda dha di irupen.</p>
+              <p>Nee ye poga sonnalum pomaten. <span class="white-heart">🤍</span></p>
+              <p>Maybe ups and downs eruklam…</p>
+              <p>Atha ellame <strong>ona ve face panalam.</strong> 🫂<span class="white-heart">🤍</span></p>
+              <p>Una na tight-aa pudichu kiten di thangoo…</p>
+              <p>Ethuku mela na enga poga sollu? 🥹<span class="white-heart">🤍</span></p>
+              <p>Nama inum santhosama eruklam.</p>
+              <p>Trip polam yarukum sollama 🤫✈️</p>
+              <p>Shopping polam…</p>
+              <p>Ana ethum vanga vendammmm 😂🛍️</p>
+              <p>Fairlands fulla suthalam <span class="white-heart">🤍</span></p>
+              <p>Restaurant restaurant-aa polam 🍽️</p>
+              <p>Coffee shop polam ☕<span class="white-heart">🤍</span></p>
+              <p>Nee unoda childhood-la pona edathuku polam 🥹</p>
+              <p>Neraya sanda podalam 😂</p>
+              <p>Aprm mathi mathi gift kuduthuklam 🎁<span class="white-heart">🤍</span></p>
+              <p>Oru kanne padum padi private-la story podalam 🤭<span class="white-heart">🤍</span></p>
+              <p><strong>Namakana future nama build pnlm di ammu.</strong> 🏡</p>
+              <p>Konjam illa…</p>
+              <p><strong>Romba cringe dha irukum letter-u</strong> 😂😭</p>
+              <p>Ona patha apdiya kavithaya kottuthu…</p>
+              <p>Ana write panrapo spelling mistake varuthu 😭😂</p>
+              <p>But…</p>
+              <blockquote class="parchment-quote">You are the treasure I don't want to lose. 🤍  You are the victory of my life. 🏆🤍</blockquote>
+              <p>And still…</p>
+              <p><strong>I am proud of having you.</strong> 🥹<span class="white-heart">🤍</span></p>
+              <h3 class="parchment-subheading">🥺 After All This Time?</h3>
+              <p>Evlo sanda vanthuruku…</p>
+              <p>Neraya aluthiruka…</p>
+              <p>Kasta paturkiya…</p>
+              <p><strong>"Da, inum en mela unaku love eruka?"</strong> nu ketaaa…</p>
+              <p><strong>Ahm.</strong> <span class="white-heart">🤍</span></p>
+              <blockquote class="parchment-quote">"After all this time?"</blockquote>
+              <p><strong>Always.</strong> 🥹<span class="white-heart">🤍</span></p>
+              <h2 class="parchment-section-heading">🎂 Once Again...</h2>
+              <p>Happy Birthday my <strong>Half Blood Princess</strong> 🧙‍♀️<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Kovakariii</strong> 😤<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Gulab Jamun</strong> 🍩<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Bonda Muki</strong> 😂<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Lucky Charm</strong> 🍀<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Main Character</strong> 👑✨</p>
+              <p>Happy Birthday my <strong>Crusheeyyyy</strong> 😭<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Girlfriend</strong> 🥹<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Drug Dealer</strong> 😂💊<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Thangooooooo</strong> 🫂<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Vaaathuuuuu</strong> 🦆<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>Ammuuuuu</strong> 🥹<span class="white-heart">🤍</span></p>
+              <p>Happy Birthday my <strong>11</strong> 🔐<span class="white-heart">🤍</span>✨</p>
+              <div class="parchment-divider">✧ ✦ ✧</div>
+              <h3 class="parchment-subheading">🤍 From Your...</h3>
+              <p><strong>Irresponsible Boyfriend</strong></p>
+              <h4 class="parchment-signature-title">MALFOY 🐍🤍</h4>
+              <p><strong>P.S. — I still can't believe that the girl sitting on that first bench became this important to me.</strong> 🥹<span class="white-heart">🤍</span></p>
+            </div>
+
+            <div class="parchment-footer text-center">
+              <div class="parchment-quill-icon">🪶 ✦ 📜</div>
+            </div>
+          </div>
+
+          <div class="parchment-roller roller-bottom"></div>
+        </div>
+
+        <div class="scene-nav-actions" style="margin-top:1.5rem;">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+          <button class="scene-next-btn" onclick="window.SceneEngine.nextScene()"><span>Next → The Ending?</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 16: FAKE ENDING ==================== -->
+    <div class="story-scene" id="scene-fake-ending" data-chapter="Chapter 16: Fake Ending" data-chapter-num="16" data-scene-id="scene-fake-ending">
+      <div class="fake-ending-box glass-panel text-center" style="padding:2.5rem 1.5rem;">
+        <div class="cosmic-badge">The End?</div>
+        <h2 class="hero-title" style="font-size:2.4rem; margin-bottom:0.5rem;">And They Lived Happily Ever After...</h2>
+        <p class="ending-sub" style="font-size:1.1rem; color:var(--pink-200); margin-bottom:1.5rem;">Thank you for exploring our digital story together.</p>
+        
+        <div class="credits-roll" style="padding:1.2rem; background:rgba(0,0,0,0.35); border-radius:12px; margin-bottom:2rem; font-family:var(--font-serif); font-size:0.95rem; color:var(--text-muted); line-height:2;">
+          <p>Directed by: <strong>Malfoy 🎬</strong></p>
+          <p>Starring: <strong>Bavya Sri 👸🏽</strong></p>
+          <p>Music: <strong>Stephen Sanchez 🎵</strong></p>
+          <p>Location: <strong>Our Universe ✨</strong></p>
+        </div>
+
+        <p class="fake-hint-text" style="font-size:0.9rem; color:var(--text-hint); margin-bottom:1.5rem;">
+          Wait... did you really think that was everything? Look for the pulsing star below:
+        </p>
+
+        <button id="reveal-true-finale-btn" class="cosmic-btn glow-pulse-btn">
+          <span>✨ Touch The Secret Constellation Star ✦</span>
+        </button>
+
+        <div class="scene-nav-actions" style="margin-top:1.5rem;">
+          <button class="scene-back-btn" onclick="window.SceneEngine.prevScene()"><span>← Back</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== CHAPTER 17: FINAL REVEAL ==================== -->
+    <div class="story-scene" id="scene-final-reveal" data-chapter="Chapter 17: Final Reveal" data-chapter-num="17" data-scene-id="scene-final-reveal">
+      <div class="final-reveal-modal glass-panel text-center" style="padding:2.5rem 1.5rem;">
+        <div class="celestial-tag" style="background:rgba(244,63,94,0.3); border-color:var(--pink-400);">Final Surprise</div>
+        <h2 class="reveal-title glow-text" style="font-size:2.5rem; margin-bottom:0.5rem;">Happy Birthday, My Whole World! 🎂🤍</h2>
+        
+        <!-- Final Letter from Final Letter.md -->
+        <div class="glass-panel" style="padding:1.8rem 1.4rem; border-radius:16px; margin-bottom:2rem; text-align:left; line-height:1.8; font-size:0.95rem; color:#fff; border-left:4px solid var(--pink-400);">
+          <h4 style="font-family:var(--font-display); font-size:1.35rem; color:var(--pink-300); margin-bottom:1rem; text-align:center;">🥹 Final Letter</h4>
+          <p>May be in another universe, i came early to the class.</p>
+          <p>May be in another universe, i still admire you from the last bench.</p>
+          <p>Maybe in another universe, i can still write poetry on seeing you.</p>
+          <p>May be in another universe, i can search your social media and get scared to follow 😄</p>
+          <p>May be in another universe, i can sit beside you in the exam hall and talk nothing to you.</p>
+          <p>May be in another universe, i can still see boys following you and gets rejected by you 🤭</p>
+          <p>May be in another universe, i get happy when we match the outfits without knowing 🤌🏻</p>
+          <p>May be in another universe, i can find the girl with number 11 as birthdate 🤍</p>
+          <p>May be in another universe, i will message you for the first time.</p>
+          <p>May be in another universe, we can go on a iv trip without knowing eachother.</p>
+          <p>May be in another universe, i can still sit and gets butterfly over you notification. 🦋</p>
+          <p>May be in another universe, we can talk inside a lonely bus.</p>
+          <p>May be in another universe, lets be friends once again.</p>
+          <p>May be in another universe, when world sleeps, lets listen music together.</p>
+          <p>May be in another universe, we still be friends without falling for you.</p>
+          <p style="margin-top:1rem;">After all these things the universe played it's role and the manifestation came true. But still, something happens like i didn't deserve you, and i am whole of a burden to you.</p>
+          <p>Maybe in another universe, you didn't know my existence 😄, so you can still be happy in your life.</p>
+          <p style="margin-top:1rem;">In this universe, i will love you, miss you, protect you, make you feel special, be loyal to you. In matter of time, flips the table 😅 finding a person better than me, aaaaaaaaahhhmmmm 🫥 your fine to go because everyone deserves better then why can't you.</p>
+          <p style="margin-top:1rem; font-weight:600; color:var(--pink-200);">But still,</p>
+          <blockquote style="font-family:var(--font-display); font-size:1.25rem; font-style:italic; color:#fff; border-left:3px solid var(--star-gold); padding-left:1rem; margin-top:0.5rem;">
+            “I will be sitting, admiring, writing, searching for the best of us through eternity .🤍🪄♾️”
+          </blockquote>
+        </div>
+
+        <div class="reveal-video-box glass-panel" style="min-height:200px; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; border:2px dashed var(--pink-300); border-radius:20px; margin-bottom:2rem;">
+          <div class="video-placeholder-icon" style="font-size:3.5rem; margin-bottom:0.8rem;">🎬 ▶️</div>
+          <h3 style="color:#fff; margin-bottom:0.5rem;">[VIDEO WILL BE ADDED]</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); max-width:480px;">
+            A special video will be added here.
+          </p>
+        </div>
+
+        <div class="reveal-footer text-center">
+          <p class="ending-love-quote" style="font-family:var(--font-display); font-size:1.4rem; font-style:italic; color:#fff; margin-bottom:1.5rem;">
+            “Correct. Because I'd choose you too. Every single time.” ✨🤍
+          </p>
+          <div class="scene-nav-actions">
+            <button class="cosmic-btn primary-btn" onclick="window.SceneEngine.start(0)">Replay Journey ✦</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       BOTTOM STORYBOOK HUD (Visual Novel Navigation & Progress)
+       ========================================================================== -->
+  <nav id="storybook-hud" class="storybook-hud">
+    <button id="hud-back-btn" class="hud-back-btn" aria-label="Previous Scene" title="Go to previous scene" onclick="window.SceneEngine.prevScene()">
+      <span>←</span>
+      <span>Back</span>
+    </button>
+    <div class="hud-center-info">
+      <span id="hud-chapter-title" class="hud-chapter-title">Chapter 1: Secret Entrance</span>
+      <span id="hud-scene-indicator" class="hud-scene-indicator">Scene 1 of 1</span>
+      <div class="hud-progress-bar">
+        <div id="hud-progress-fill" class="hud-progress-fill"></div>
+      </div>
+    </div>
+    <button id="hud-next-btn" class="hud-next-btn" aria-label="Next Scene" title="Advance to next scene" onclick="window.SceneEngine.nextScene()">
+      <span>Next</span>
+      <span class="btn-arrow">→</span>
+    </button>
+  </nav>
+
+  <!-- Interactive Easter Egg Toast Notification -->
+  <div id="cosmic-toast" class="cosmic-toast hidden">
+    <div class="toast-icon">✨</div>
+    <div class="toast-body">
+      <div id="toast-title" class="toast-title">Secret Discovered!</div>
+      <div id="toast-msg" class="toast-msg">You found an easter egg.</div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js?v=5.0"></script>
+  <script src="js/starfield.js?v=5.0"></script>
+  <script src="js/audio.js?v=5.0"></script>
+  <script src="js/storyteller.js?v=5.0"></script>
+  <script src="js/scene-engine.js?v=5.0"></script>
+  <script src="js/secret.js?v=5.0"></script>
+  <script src="js/quiz.js?v=5.0"></script>
+  <script src="js/interactive.js?v=5.0"></script>
+  <script src="js/easter-eggs.js?v=5.0"></script>
+  <script src="js/app.js?v=5.0"></script>
+</body>
+</html>

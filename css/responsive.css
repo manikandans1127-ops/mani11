@@ -1,0 +1,160 @@
+/* ==========================================================================
+   Responsive Design & Mobile-First Tweaks
+   ========================================================================== */
+
+/* Small Phones (< 480px) */
+@media (max-width: 480px) {
+  .cosmic-container {
+    padding: 0 1rem;
+  }
+
+  .nav-container {
+    padding: 0.5rem 0.8rem;
+  }
+
+  .nav-brand {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-card {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-quote {
+    font-size: 1.15rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .entrance-box {
+    padding: 2rem 1.25rem;
+  }
+
+  .key-btn {
+    height: 52px;
+    font-size: 1.25rem;
+  }
+
+  .story-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .story-card-title {
+    font-size: 1.35rem;
+  }
+
+  .quiz-box {
+    padding: 1.8rem 1.25rem;
+  }
+
+  .quiz-question {
+    font-size: 1.2rem;
+  }
+
+  .quiz-opt-btn {
+    padding: 0.9rem 1.1rem;
+    font-size: 0.92rem;
+  }
+
+  .featured-anthem {
+    padding: 1.5rem 1.2rem;
+    gap: 1.5rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .anthem-disc {
+    width: 110px;
+    height: 110px;
+  }
+
+  .custom-audio-player {
+    justify-content: center;
+  }
+
+  .reveal-content {
+    padding: 2rem 1.25rem;
+  }
+
+  .reveal-title {
+    font-size: 1.9rem;
+  }
+
+  .birthday-letter-box {
+    padding: 1.5rem 1.2rem;
+  }
+
+  .letter-stamp {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Tablet & Desktop Layout (> 768px) */
+@media (min-width: 768px) {
+  .story-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-grid .story-card:first-child {
+    grid-column: span 2;
+  }
+
+  .hero-card {
+    padding: 5rem 3rem;
+  }
+
+  .timeline-nodes-list {
+    gap: 2.5rem;
+  }
+
+  .node-card {
+    padding: 1.8rem 2rem;
+  }
+}
+
+/* Desktop Large (> 1024px) */
+@media (min-width: 1024px) {
+  .cosmic-container {
+    padding: 0 2rem;
+  }
+
+  #main-journey, .journey-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .sound-wave.playing .bar {
+    animation: none;
+    height: 80%;
+  }
+
+  .anthem-disc.spinning {
+    animation: none;
+  }
+}

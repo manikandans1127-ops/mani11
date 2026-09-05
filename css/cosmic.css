@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Cosmic Atmospheric Effects & Animations
+   ========================================================================== */
+
+#cosmic-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, #0d0b24 0%, #06060f 100%);
+}
+
+/* Ambient Glowing Nebulas */
+.nebula-glow {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: -5;
+  opacity: 0.45;
+  animation: floatNebula 20s infinite ease-in-out alternate;
+}
+
+.nebula-pink {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(244, 63, 94, 0.25) 0%, rgba(244, 63, 94, 0) 70%);
+  top: -100px;
+  right: -100px;
+}
+
+.nebula-purple {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(168, 85, 247, 0) 70%);
+  bottom: -150px;
+  left: -150px;
+  animation-duration: 25s;
+  animation-delay: -5s;
+}
+
+.nebula-blue {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
+  top: 40%;
+  left: 30%;
+  animation-duration: 30s;
+  animation-delay: -10s;
+}
+
+@keyframes floatNebula {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 40px) scale(0.95);
+  }
+}
+
+/* Floating Starlight Animations */
+@keyframes starShimmer {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.float-gentle {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+/* Audio HUD Widget */
+.audio-hud {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+}
+
+.hud-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: rgba(20, 15, 38, 0.7);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--border-glass-pink);
+  border-radius: var(--radius-full);
+  color: var(--pink-200);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hud-btn:hover {
+  background: rgba(35, 25, 60, 0.85);
+  border-color: var(--pink-400);
+  color: var(--star-white);
+  transform: translateY(-2px);
+}
+
+/* Animated Sound Wave Bars */
+.sound-wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.sound-wave .bar {
+  width: 2.5px;
+  height: 100%;
+  background-color: var(--pink-400);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+.sound-wave.playing .bar-1 { animation: waveBar 1.2s infinite ease-in-out alternate; }
+.sound-wave.playing .bar-2 { animation: waveBar 0.8s infinite ease-in-out alternate 0.2s; }
+.sound-wave.playing .bar-3 { animation: waveBar 1.4s infinite ease-in-out alternate 0.4s; }
+
+@keyframes waveBar {
+  0% { height: 20%; }
+  100% { height: 100%; }
+}
+
+/* Toast Notifications */
+.cosmic-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.9rem 1.6rem;
+  background: rgba(24, 16, 45, 0.9);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--pink-400);
+  border-radius: var(--radius-full);
+  box-shadow: var(--glow-pink-md);
+  color: #fff;
+  font-size: 0.95rem;
+  opacity: 1;
+  transition: all var(--transition-smooth);
+}
+
+.cosmic-toast.hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+
+.toast-icon {
+  font-size: 1.4rem;
+}
+
+.toast-title {
+  font-weight: 600;
+  color: var(--pink-300);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.toast-msg {
+  color: var(--star-white);
+}
